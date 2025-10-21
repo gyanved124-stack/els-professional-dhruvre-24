@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import LoginForm from './components/LoginForm'
 import Dashboard from './components/Dashboard'
+
 import './App.css'
+const apiUrl = import.meta.env.VITE_API_URL
 
 function App() {
   const [user, setUser] = useState(null)
@@ -10,14 +12,17 @@ function App() {
   const handleLogin = async (credentials) => {
     setLoading(true)
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      })
-
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/login`, // 👈 now using .env
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(credentials),
+        }
+      )
+  
       if (response.ok) {
         const userData = await response.json()
         setUser(userData.user)
@@ -33,6 +38,7 @@ function App() {
       setLoading(false)
     }
   }
+  
 
   const handleLogout = () => {
     setUser(null)

@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"]
+      },
+      "jsx": "react-jsx"
+    },
+    "include": [
+        "src/**/*.js",
+        "src/**/*.jsx",
+        "tests/**/*.js",
+        "tests/**/*.jsx"
+      ]
+  }
+  
