@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17-alpine
+    container_name: devops-postgres
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Strapi Server
+  server:
+    build:
+      context: ../../development/server
+      dockerfile: Dockerfile
+    container_name: devops-server
+    ports:
+      - "1337:1337"
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: strapi
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ../../development/server:/app
+      - /app/node_modules
+
+  # React Client
+  client:
+    build:
+      context: ../../development/client
+      dockerfile: Dockerfile
+    container_name: devops-client
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+
+volumes:
+  postgres_data:

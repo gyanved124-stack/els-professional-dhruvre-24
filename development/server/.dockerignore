@@ -1,0 +1,9 @@
+node_modules
+build
+dist
+.git
+.github
+.env
+Dockerfile
+.tmp
+public/uploads

@@ -1,0 +1,66 @@
+/* ========================================
+   LEVEL 3: Feature Card Styles
+   ======================================== */
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.feature-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.feature-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Dark Theme */
+[data-theme="dark"] .feature-card {
+  background: #2d2d44;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .feature-title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .feature-description {
+  color: #b0b0b0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+  }
+
+  .feature-title {
+    font-size: 1.2rem;
+  }
+}

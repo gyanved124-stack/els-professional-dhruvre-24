@@ -1,0 +1,244 @@
+/* ========================================
+   LEVEL 3: Members Page Styles
+   ======================================== */
+
+.members-page {
+  padding: 2rem 0;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Filters */
+.filters {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.role-filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.filter-btn.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+/* Members Grid */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.member-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.member-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.member-card h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.member-email {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.member-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.member-badge.student {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.member-badge.alumni {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+/* Dark Theme */
+[data-theme="dark"] .page-header h1 {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .page-header p {
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .filters,
+[data-theme="dark"] .member-card {
+  background: #2d2d44;
+}
+
+[data-theme="dark"] .search-input {
+  background: #1a1a2e;
+  border-color: #4a4a5e;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .search-input:focus {
+  border-color: #9f7aea;
+}
+
+[data-theme="dark"] .filter-btn {
+  background: #1a1a2e;
+  border-color: #4a4a5e;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .filter-btn:hover {
+  border-color: #9f7aea;
+  color: #9f7aea;
+}
+
+[data-theme="dark"] .filter-btn.active {
+  background: #9f7aea;
+  border-color: #9f7aea;
+}
+
+[data-theme="dark"] .member-card h3 {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .member-email {
+  color: #b0b0b0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .role-filters {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}

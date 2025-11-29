@@ -1,0 +1,39 @@
+/* ========================================
+   LEVEL 3: Feature Grid Styles
+   ======================================== */
+
+.features-section {
+  margin: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+/* Dark Theme */
+[data-theme="dark"] .section-title {
+  color: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
